@@ -1,0 +1,5 @@
+# Dependências de execução (instaladas também pelo Streamlit Community Cloud).
+# Versões fixas para que a aplicação seja reproduzível.
+streamlit==1.66.1
+psycopg[binary]==3.3.6
+psycopg-pool==3.3.3

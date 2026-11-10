@@ -1,0 +1,3 @@
+# Dependências de desenvolvimento (testes). Não são necessárias na hospedagem.
+-r requirements.txt
+pytest==9.2.0

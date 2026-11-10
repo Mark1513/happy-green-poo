@@ -1,0 +1,13 @@
+[project]
+name = "happy-green"
+version = "1.0.0"
+description = "Happy Green: sistema de gestão financeira pessoal (projeto acadêmico de POO)"
+requires-python = ">=3.12,<3.13"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "integracao: testes que acessam o PostgreSQL de testes (schema happy_green_teste)",
+]
