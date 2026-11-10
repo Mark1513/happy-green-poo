@@ -29,7 +29,7 @@ BEGIN
     END IF;
 
     INSERT INTO contas (nome, saldo_inicial) VALUES ('Conta Corrente', 2500.00) RETURNING id INTO c_corrente;
-    INSERT INTO contas (nome, saldo_inicial) VALUES ('Carteira', 150.00)      RETURNING id INTO c_carteira;
+    INSERT INTO contas (nome, saldo_inicial) VALUES ('Carteira', 300.00)      RETURNING id INTO c_carteira;
     INSERT INTO contas (nome, saldo_inicial) VALUES ('Poupança', 5000.00)     RETURNING id INTO c_poupanca;
 
     INSERT INTO categorias (nome, tipo) VALUES ('Salário', 'receita')     RETURNING id INTO k_salario;

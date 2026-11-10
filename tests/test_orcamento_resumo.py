@@ -103,6 +103,16 @@ def test_categoria_com_orcamento_e_sem_gasto_aparece_com_zero(dados):
     assert not item.situacao_orcamento.ultrapassado
 
 
+def test_totais_de_qualquer_colecao(dados):
+    from happy_green.dominio import Totais
+
+    *_, lancamentos = dados
+    totais = Totais.calcular(lancamentos)
+    assert (totais.receitas, totais.despesas, totais.resultado) == (
+        Decimal("1500.00"), Decimal("1419.00"), Decimal("81.00"),
+    )
+
+
 def test_resumo_vazio():
     resumo = ResumoMensal(OUTUBRO, [])
     assert resumo.resultado == Decimal("0.00")

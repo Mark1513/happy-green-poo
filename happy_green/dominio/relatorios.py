@@ -12,6 +12,27 @@ from happy_green.dominio.tempo import Competencia
 
 
 @dataclass(frozen=True)
+class Totais:
+    """Receitas, despesas e resultado de qualquer coleção de lançamentos."""
+
+    receitas: Decimal
+    despesas: Decimal
+
+    @property
+    def resultado(self) -> Decimal:
+        return self.receitas - self.despesas
+
+    @classmethod
+    def calcular(cls, lancamentos: Iterable[Lancamento]) -> "Totais":
+        # Só o método polimórfico é chamado: nenhum "if é Receita / é Despesa".
+        impactos = [lancamento.calcular_impacto_no_saldo() for lancamento in lancamentos]
+        return cls(
+            receitas=sum((i for i in impactos if i > 0), ZERO),
+            despesas=-sum((i for i in impactos if i < 0), ZERO),
+        )
+
+
+@dataclass(frozen=True)
 class ItemResumoCategoria:
     """Linha do resumo: total de uma categoria no mês."""
 
@@ -43,6 +64,7 @@ class ResumoMensal:
         self._lancamentos = tuple(l for l in lancamentos if l.ocorreu_em(competencia))
         # Cada impacto é obtido pelo método polimórfico: +valor ou -valor.
         self._impactos = tuple(l.calcular_impacto_no_saldo() for l in self._lancamentos)
+        self._totais = Totais.calcular(self._lancamentos)
         self._itens = self._montar_itens([o for o in orcamentos if o.competencia == competencia])
 
     @property
@@ -51,15 +73,15 @@ class ResumoMensal:
 
     @property
     def total_receitas(self) -> Decimal:
-        return sum((impacto for impacto in self._impactos if impacto > 0), ZERO)
+        return self._totais.receitas
 
     @property
     def total_despesas(self) -> Decimal:
-        return -sum((impacto for impacto in self._impactos if impacto < 0), ZERO)
+        return self._totais.despesas
 
     @property
     def resultado(self) -> Decimal:
-        return sum(self._impactos, ZERO)
+        return self._totais.resultado
 
     @property
     def quantidade_lancamentos(self) -> int:

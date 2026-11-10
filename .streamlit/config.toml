@@ -1,0 +1,19 @@
+# Identidade visual Happy Green (tema nativo do Streamlit, sem CSS frágil).
+# Verde #1B6E3C sobre branco tem contraste de ~6,3:1 (WCAG AA para texto).
+[theme]
+base = "light"
+primaryColor = "#1B6E3C"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EDF6EF"
+textColor = "#17251C"
+font = "sans serif"
+
+[client]
+# Visitantes veem só o essencial do menu do Streamlit.
+toolbarMode = "viewer"
+
+[browser]
+gatherUsageStats = false
+
+[logger]
+level = "info"
