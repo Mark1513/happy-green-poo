@@ -67,10 +67,16 @@ def pagina() -> None:
     lancamentos = componentes.carregar(lambda: servicos.lancamentos.consultar(filtro))
 
     totais = Totais.calcular(lancamentos)
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Receitas no filtro", formatar_brl(totais.receitas), border=True)
-    c2.metric("Despesas no filtro", formatar_brl(totais.despesas), border=True)
-    c3.metric("Resultado no filtro", formatar_brl(totais.resultado), border=True)
+    # Linha de texto (e não 3 indicadores lado a lado): cabe inteira em qualquer largura.
+    with st.container(border=True):
+        st.markdown(
+            componentes.md(
+                f"**{len(lancamentos)} lançamento(s) no filtro** · "
+                f"Receitas: **{formatar_brl(totais.receitas)}** · "
+                f"Despesas: **{formatar_brl(totais.despesas)}** · "
+                f"Resultado: **{formatar_brl(totais.resultado)}**"
+            )
+        )
 
     if lancamentos:
         componentes.tabela(componentes.linhas_de_lancamentos(lancamentos), altura=min(420, 38 + 35 * len(lancamentos)))
