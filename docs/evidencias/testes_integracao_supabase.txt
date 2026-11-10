@@ -1,0 +1,18 @@
+# Execução: 2026-11-10 01:07 -0300 | schema happy_green_teste no Supabase (Session pooler, SSL)
+$ pytest -m integracao -v
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\marco\AppData\Local\happy-green-venv\Scripts\python.exe
+rootdir: C:\Users\marco\OneDrive\Documentos\Happy Green Claude
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 99 items / 93 deselected / 6 selected
+
+tests/test_integracao_postgres.py::test_cenario_completo_com_persistencia_e_reinicio PASSED [ 16%]
+tests/test_integracao_postgres.py::test_reconstroi_subclasses_e_decimal PASSED [ 33%]
+tests/test_integracao_postgres.py::test_restricoes_do_banco PASSED       [ 50%]
+tests/test_integracao_postgres.py::test_banco_recusa_dados_invalidos_mesmo_sem_o_dominio PASSED [ 66%]
+tests/test_integracao_postgres.py::test_reenvio_nao_duplica_no_banco PASSED [ 83%]
+tests/test_integracao_postgres.py::test_conexao_criptografada PASSED     [100%]
+
+====================== 6 passed, 93 deselected in 59.80s ======================
