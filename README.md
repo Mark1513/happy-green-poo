@@ -98,8 +98,8 @@ precisão. Detalhes em [`happy_green/dominio/dinheiro.py`](happy_green/dominio/d
 Pré-requisitos: Python 3.12 e Git.
 
 ```bash
-git clone https://github.com/Mark1513/happy-green.git
-cd happy-green
+git clone https://github.com/Mark1513/happy-green-poo.git
+cd happy-green-poo
 python -m venv .venv
 ```
 
@@ -142,7 +142,7 @@ ignorados quando ela não existe. Saídas reais em [`docs/evidencias.md`](docs/e
 
 ## Publicação
 
-Streamlit Community Cloud: repositório `Mark1513/happy-green`, branch `main`,
+Streamlit Community Cloud: repositório `Mark1513/happy-green-poo`, branch `main`,
 arquivo `streamlit_app.py`, Python 3.12 e Secrets com a seção `[banco]`.
 Passo a passo, logs, atualização e limitações (hibernação após 12 h sem acesso;
 pausa do Supabase Free após 7 dias de pouca atividade) em

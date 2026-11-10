@@ -23,10 +23,10 @@ e [Manage your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/m
 1. Acesse <https://share.streamlit.io> e entre com a conta do **GitHub** (`Mark1513`). Autorize o Streamlit a ler os repositórios, se ele pedir.
 2. Clique em **Create app** (canto superior direito) e responda **"Yup, I have an app"**.
 3. Preencha:
-   - **Repository:** `Mark1513/happy-green`
+   - **Repository:** `Mark1513/happy-green-poo`
    - **Branch:** `main`
    - **Main file path:** `streamlit_app.py`
-   - **App URL (opcional):** tente `happy-green`. Se estiver ocupado, o campo avisa; use outra opção, como `happy-green-poo` ou `happy-green-financas`. Não divulgue o link antes de o deploy terminar.
+   - **App URL (opcional):** tente `happy-green-poo`. Se estiver ocupado, o campo avisa; use outra opção, como `happy-green-financas` ou `happy-green-oo`. Não divulgue o link antes de o deploy terminar.
 4. Clique em **Advanced settings**:
    - **Python version:** `3.12`
    - **Secrets:** cole **somente a seção `[banco]`** do seu `.streamlit/secrets.toml` (host, port, dbname, user, password, schema, sslmode). **Não** cole a seção `[banco_teste]`.
