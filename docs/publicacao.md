@@ -64,3 +64,5 @@ e [Manage your app](https://docs.streamlit.io/deploy/streamlit-community-cloud/m
 | Projeto preparado | Código, requisitos, configuração e segredos de exemplo prontos no GitHub |
 | Aplicação publicada | O Community Cloud terminou o deploy e gerou o link |
 | Aplicação publicada e verificada | Os fluxos principais foram testados pelo link público (ver `docs/evidencias.md`) |
+
+**Situação atual (10/11/2026): publicada e verificada em <https://happy-green-poo.streamlit.app>.**

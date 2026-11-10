@@ -1,6 +1,8 @@
 # 🌿 Happy Green — gestão financeira pessoal
 
-> **🔗 Aplicação publicada:** _link será adicionado após o deploy no Streamlit Community Cloud._
+> ## 🔗 Acesse: **[https://happy-green-poo.streamlit.app](https://happy-green-poo.streamlit.app)**
+>
+> Publicada no Streamlit Community Cloud e **verificada pela URL pública** em 10/11/2026 (ver [`docs/evidencias.md`](docs/evidencias.md)). Se aparecer "This app has gone to sleep", clique em **Yes, get this app back up!** e aguarde cerca de 1 minuto.
 >
 > ⚠️ **Demonstração acadêmica:** os dados são fictícios e **compartilhados entre todos os visitantes** — qualquer pessoa pode alterá-los. Não registre informações reais.
 

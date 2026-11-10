@@ -40,6 +40,41 @@ O cenário do enunciado roda em dois testes:
 - Capturas: [computador](evidencias/local_painel_computador.jpg), [celular 1](evidencias/local_painel_celular_1.jpg), [celular 2](evidencias/local_painel_celular_2.jpg) (viewport 375 × 812).
   Nas capturas do celular, a Carteira aparece com −R$ 39,00; depois disso o saldo inicial dela foi ajustado de 150,00 para 300,00 nos dados fictícios.
 
-## 4. Verificação pela URL pública
+## 4. Publicação e verificação pela URL pública — 10/11/2026
 
-_Pendente: preenchido após o deploy no Streamlit Community Cloud._
+**Estado: aplicação publicada e verificada** em <https://happy-green-poo.streamlit.app>.
+
+### Deploy (log do Streamlit Community Cloud, horário UTC)
+
+- 04:39:09 — clone de `Mark1513/happy-green-poo`, branch `main`, arquivo `streamlit_app.py`.
+- Ambiente: **Python 3.12.16**; instalados `streamlit==1.66.1`, `psycopg==3.3.6`, `psycopg-binary==3.3.6`, `psycopg-pool==3.3.3` a partir do `requirements.txt`.
+- 04:39:33 — `INFO happy_green.config: Criando pool de conexões (host=aws-0-us-east-1.pooler.supabase.com, schema=happy_green)`. A senha não aparece no log.
+- Aviso da plataforma (sem efeito): detectou também o `pyproject.toml`, mas usou o `requirements.txt`.
+
+### Cenário do enunciado executado no navegador, pela URL pública
+
+Registros criados com o sufixo "Verificação" para não misturar com a demonstração.
+
+| Passo | Ação | Resultado observado |
+|---|---|---|
+| 1 | Cadastrar "Conta Verificação" com saldo `0,00` | "Conta 'Conta Verificação' cadastrada." |
+| 2 | Categorias "Salário Verificação" (receita), "Alimentação Verificação" e "Transporte Verificação" (despesa) | Três mensagens de cadastro |
+| 3–4 | Receita `1.500,00`; despesas `300,00` (alimentação) e `120,00` (transporte) | "Receita 'Salário Verificação' registrada." e as duas despesas registradas |
+| 5 | Página Contas | Saldo atual **R$ 1.080,00** ([captura](evidencias/publico_02_saldo_1080.jpg)) |
+| 6 | Orçamento de "Alimentação Verificação" `250,00` em 11/2026 | Gasto R$ 300,00, disponível −R$ 50,00, **120,0% do limite** e "Atenção: Limite ultrapassado em R$ 50,00." ([captura](evidencias/publico_03_orcamento_ultrapassado.jpg)) |
+| 7 | Editar o transporte para `150,00` | "Lançamento atualizado..." → saldo **R$ 1.050,00** |
+| 8 | Excluir a despesa de alimentação (diálogo de confirmação) | "Lançamento excluído..." → saldo **R$ 1.350,00**; orçamento em **0,0% do limite**, sem aviso ([captura do diálogo](evidencias/publico_04_confirmar_exclusao.jpg)) |
+| 9 | **Reboot** do app no painel do Community Cloud (log: novo *Starting up* às 04:46:06 UTC) e nova abertura | Saldo continua **R$ 1.350,00** ([captura](evidencias/publico_05_saldo_1350_apos_reboot.jpg)) |
+| Extra | Tentar excluir "Conta Verificação" | Recusado: "A conta 'Conta Verificação' possui lançamentos. Exclua ou mova os lançamentos antes." ([captura](evidencias/publico_06_integridade_conta_com_lancamentos.jpg)) |
+| Extra | Saldo inicial `12,345` | "Use no máximo 2 casas decimais (centavos)." e nenhuma conta criada |
+
+Outras capturas: [painel publicado](evidencias/publico_01_painel.jpg) e [lançamentos no celular (375 × 812)](evidencias/publico_07_lancamentos_celular.jpg).
+
+### Problemas encontrados nesta verificação
+
+- **Totais do filtro cortados** ("R$ 6....") em larguras médias na página Lançamentos. **Corrigido** no commit `9378265` (totais em uma linha); a versão reimplantada mostrou "11 lançamento(s) no filtro · Receitas: R$ 6.050,00 · Despesas: R$ 2.525,30 · Resultado: R$ 3.524,70", inteira no celular.
+- **Erro de operação durante o teste (não é defeito do app):** numa primeira tentativa do teste de validação, o clique não acertou o campo de saldo, e uma conta "Conta Inválida" foi criada com o saldo padrão 0,00. A segunda tentativa, no campo certo, mostrou a mensagem de validação.
+
+### Limpeza
+
+Ao final, os registros de verificação (2 contas, 3 categorias, 2 lançamentos e 1 orçamento) foram removidos do schema `happy_green`. A demonstração voltou a ter 3 contas, 9 categorias, 21 lançamentos e 6 orçamentos.
