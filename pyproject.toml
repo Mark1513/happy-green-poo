@@ -7,7 +7,8 @@ requires-python = ">=3.12,<3.13"
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
-addopts = "-ra"
+# Por padrão roda só os testes rápidos (sem banco). Integração: pytest -m integracao
+addopts = ["-ra", "-m", "not integracao"]
 markers = [
     "integracao: testes que acessam o PostgreSQL de testes (schema happy_green_teste)",
 ]
