@@ -164,15 +164,17 @@ pausa do Supabase Free após 7 dias de pouca atividade) em
 
 ## Integrantes e contribuições
 
-| # | Integrante | Contribuições |
-|---|---|---|
-| 1 | Marcos Paulo Santos Mota | _a preencher pelo grupo_ |
-| 2 | Eduardo Hernandez Ferreira Mota | _a preencher pelo grupo_ |
-| 3 | Luciano Schuck Vaiksnoras | _a preencher pelo grupo_ |
-| 4 | Arthur Conceição Souza | _a preencher pelo grupo_ |
-| 5 | Marcelo Gomes de Souza Junior | _a preencher pelo grupo_ |
-| 6 | Matheus Tavares de Assis Lemos | _a preencher pelo grupo_ |
+Divisão de responsabilidades definida pelo grupo. Cada integrante responde pela sua parte
+na apresentação, mas **todos conhecem o projeto inteiro**, como exige o barema.
 
-> Os commits do repositório foram feitos pela conta GitHub `Mark1513`. Para que as contribuições
-> fiquem rastreáveis, cada integrante pode registrar aqui a sua parte (por exemplo: modelagem,
-> testes, documentação, roteiro e ensaio da apresentação).
+| # | Integrante | Parte do trabalho | Onde está no repositório |
+|---|---|---|---|
+| 1 | **Marcos Paulo Santos Mota** | Coordenação, **README** e documentação geral, publicação (GitHub e Streamlit Community Cloud) | `README.md`, `docs/publicacao.md`, `docs/criterios_avaliacao.md`, `docs/missoes.md` |
+| 2 | **Eduardo Hernandez Ferreira Mota** | Modelagem orientada a objetos: entidades, abstração, herança e polimorfismo (`Lancamento`, `Receita`, `Despesa`); diagrama de classes | `happy_green/dominio/` (contas, categorias, lançamentos, entidade), `docs/diagrama_classes.md` |
+| 3 | **Luciano Schuck Vaiksnoras** | Regras financeiras: política monetária (`Decimal`), orçamento mensal e resumo mensal; serviços (casos de uso) | `happy_green/dominio/dinheiro.py`, `orcamentos.py`, `relatorios.py`, `tempo.py`, `happy_green/servicos/` |
+| 4 | **Arthur Conceição Souza** | Banco de dados e persistência: Supabase, scripts SQL, repositórios com Psycopg 3, configuração de segredos | `sql/`, `happy_green/repositorios/`, `happy_green/config.py`, `docs/supabase.md` |
+| 5 | **Marcelo Gomes de Souza Junior** | Interface gráfica em Streamlit: páginas, formulários, navegação e identidade visual | `streamlit_app.py`, `happy_green/interface/`, `.streamlit/config.toml`, `assets/` |
+| 6 | **Matheus Tavares de Assis Lemos** | Testes automatizados (pytest), evidências e roteiro da apresentação | `tests/`, `docs/evidencias.md`, `docs/roteiro_apresentacao.md` |
+
+> Os commits do repositório foram enviados pela conta GitHub `Mark1513`; a tabela acima registra a
+> parte de cada integrante.

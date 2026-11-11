@@ -1,6 +1,6 @@
 # Roteiro de apresentação prática (~15 minutos)
 
-> Os nomes de quem apresenta cada parte devem ser preenchidos pelo grupo.
+> Cada parte tem um responsável principal, mas o professor pode perguntar qualquer coisa a qualquer integrante: todos devem ensaiar o roteiro inteiro.
 
 ## Antes da apresentação (checklist)
 
@@ -10,13 +10,13 @@
 - [ ] Ter um terminal pronto para rodar `pytest -v`.
 - [ ] Combinar que outra pessoa pode estar usando a demonstração ao mesmo tempo (os dados são compartilhados).
 
-## 1. Problema e escopo — 1 min (Integrante: ________)
+## 1. Problema e escopo — 1 min (Marcos Paulo Santos Mota)
 
 - Gestão financeira pessoal: contas, categorias, receitas, despesas, orçamento mensal e resumos.
 - Fora do escopo: login, integração bancária, investimentos e pagamentos.
 - Mostrar o aviso de "dados fictícios e compartilhados" no topo.
 
-## 2. Modelagem orientada a objetos — 4 min (Integrante: ________)
+## 2. Modelagem orientada a objetos — 4 min (Eduardo Hernandez Ferreira Mota; orçamento e regras financeiras: Luciano Schuck Vaiksnoras)
 
 1. Abrir `docs/diagrama_classes.md` no GitHub e mostrar o diagrama.
 2. `Lancamento` é **abstrata** (`ABC`). Instanciá-la gera `TypeError` (teste `test_lancamento_e_abstrato`).
@@ -26,14 +26,14 @@
 6. **Associação** (lançamento → conta/categoria) × **composição** (orçamento ◆ competência; resumo ◆ itens).
 7. **Exceções de domínio**: `CategoriaIncompativelError`, `ExclusaoNaoPermitidaError`...
 
-## 3. Arquitetura em camadas e persistência — 3 min (Integrante: ________)
+## 3. Arquitetura em camadas e persistência — 3 min (Arthur Conceição Souza)
 
 - Interface → Serviços → Repositórios → PostgreSQL. O domínio não conhece Streamlit nem SQL.
 - Repositórios abstratos: a aplicação usa PostgreSQL, os testes usam memória.
 - SQL parametrizado (`%s`), pool de conexões, Session pooler com SSL, schema não exposto, usuário com menor privilégio.
 - Reconstrução: o banco guarda `tipo`; a fábrica `criar_lancamento` devolve `Receita` ou `Despesa`.
 
-## 4. Demonstração do cenário pelo link público — 5 min (Integrante: ________)
+## 4. Demonstração do cenário pelo link público — 5 min (Marcelo Gomes de Souza Junior)
 
 Use nomes que identifiquem a apresentação (ex.: "Conta Apresentação") para não confundir com os dados de demonstração.
 
@@ -53,13 +53,13 @@ Use nomes que identifiquem a apresentação (ex.: "Conta Apresentação") para n
 
 Depois, explicar a diferença no Painel: **saldo acumulado** (todo o histórico) × **resultado mensal** (só o mês).
 
-## 5. Testes — 1 min (Integrante: ________)
+## 5. Testes — 1 min (Matheus Tavares de Assis Lemos)
 
 - `pytest -v`: 93 testes de domínio, serviços e interface (sem banco).
 - `pytest -m integracao -v`: 6 testes no Supabase (schema de testes), incluindo o reinício da aplicação.
 - Mostrar `docs/evidencias/`.
 
-## 6. Encerramento — 1 min
+## 6. Encerramento — 1 min (Marcos Paulo Santos Mota)
 
 - Limitações: demonstração pública e compartilhada, sem login; hibernação do app gratuito; pausa do Supabase gratuito.
 - Próximos passos: login com Supabase Auth e dados por usuário, metas de economia, exportação CSV.
