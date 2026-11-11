@@ -164,8 +164,15 @@ pausa do Supabase Free após 7 dias de pouca atividade) em
 
 ## Integrantes e contribuições
 
-_A preencher pelo grupo (nome, RA e contribuições reais de cada integrante)._
+| # | Integrante | Contribuições |
+|---|---|---|
+| 1 | Marcos Paulo Santos Mota | _a preencher pelo grupo_ |
+| 2 | Eduardo Hernandez Ferreira Mota | _a preencher pelo grupo_ |
+| 3 | Luciano Schuck Vaiksnoras | _a preencher pelo grupo_ |
+| 4 | Arthur Conceição Souza | _a preencher pelo grupo_ |
+| 5 | Marcelo Gomes de Souza Junior | _a preencher pelo grupo_ |
+| 6 | Matheus Tavares de Assis Lemos | _a preencher pelo grupo_ |
 
-| Integrante | Contribuições |
-|---|---|
-| | |
+> Os commits do repositório foram feitos pela conta GitHub `Mark1513`. Para que as contribuições
+> fiquem rastreáveis, cada integrante pode registrar aqui a sua parte (por exemplo: modelagem,
+> testes, documentação, roteiro e ensaio da apresentação).
